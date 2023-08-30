@@ -9,18 +9,26 @@ export function createImg(url, imgName, classes) {
 
 export function createHeadingPrimary(content, ...classes) {
   const h1 = document.createElement('h1');
-  h1.textContent = content
+  h1.innerHTML = content
   h1.classList.add('heading--primary', ...classes);
 
   return h1;
 }
 
 export function createHeadingSecondary(content, ...classes) {
-  const h1 = document.createElement('h1');
-  h1.textContent = content
-  h1.classList.add('heading--secondary', ...classes);
+  const h2 = document.createElement('h2');
+  h2.innerHTML = content
+  h2.classList.add('heading--secondary', ...classes);
 
-  return h1;
+  return h2;
+}
+
+export function createHeadingTertiary(content, ...classes) {
+  const h3 = document.createElement('h2');
+  h3.innerHTML = content
+  h3.classList.add('heading--tertiary', ...classes);
+
+  return h3;
 }
 
 export function createParagraph(content, ...classes) {
@@ -54,6 +62,14 @@ export function createDiv(...classes) {
 
 
   return div;
+}
+
+export function createSpan(content,...classes) {
+  const span = document.createElement('span');
+  span.textContent = content;
+  span.classList.add(...classes);
+
+  return span;
 }
 
 

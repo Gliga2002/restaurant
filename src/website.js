@@ -1,6 +1,7 @@
 // importuj loadHome, loadMenu, loadContact
 import loadHome from "./home";
 import loadMenu from './menu';
+import loadContact from "./contact";
 import {createImg} from './general';
 
 
@@ -23,7 +24,7 @@ function createNav() {
 
   nav.appendChild(createNavButton('Home', loadHome));
   nav.appendChild(createNavButton('Menu', loadMenu));
-  // nav.appendChild(createNavButton('Contact',loadContact));
+  nav.appendChild(createNavButton('Contact',loadContact));
 
   return nav;
 }
