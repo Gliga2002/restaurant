@@ -1,5 +1,6 @@
 // import img
 import { createImg } from "./website";
+import {createHeadingPrimary, createParagraph, createButton} from './general';
 
 
 const imgArray = [
@@ -47,38 +48,6 @@ function homeImgBox() {
 
    return homeImgBox
 }
-
-
-// Resable functions
-function createHeadingPrimary(content, ...classes) {
-  const h1 = document.createElement('h1');
-  h1.textContent = content
-  h1.classList.add('heading--primary', ...classes);
-
-  return h1;
-}
-
-
-function createParagraph(content, ...classes) {
-  const p = document.createElement('p');
-  p.textContent = content;
-  p.classList.add(...classes);
-
-  return p;
-}
-
-function createButton(name, ...classes) {
-  const button = document.createElement('button');
-  button.textContent = name;
-  button.classList.add(...classes);
-
-  return button;
-}
-
-//////////////////////////////////////////////
-
-
-
 
 
 function deliveredMeals() {

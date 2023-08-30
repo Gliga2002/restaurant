@@ -1,5 +1,7 @@
 // importuj loadHome, loadMenu, loadContact
 import loadHome from "./home";
+import loadMenu from './menu';
+import {createImg} from './general';
 
 
 function createHeader() {
@@ -13,46 +15,14 @@ function createHeader() {
   return header;
 }
 
-function createImg(url, imgName, classes) {
-  const img = document.createElement('img');
-  img.setAttribute('src', url);
-  img.setAttribute('alt', imgName);
-  img.classList.add(...classes)
-  return img;
-}
+
 
 function createNav() {
   const nav = document.createElement('nav');
 
-  // const homeBtn = document.createElement('button');
-  // homeBtn.classList.add('btn-nav');
-  // homeBtn.textContent = "Home";
-  // homeBtn.addEventListener("click",(e) => {
-  //   if(e.target.classList.contains('active')) return;
-  //     setActiveButton(homeBtn);
-  //     loadHome();
-  // })
-
-  // const menuBtn = document.createElement('button');
-  // menuBtn.classList.add('btn-nav');
-  // menuBtn.textContent = 'Menu';
-  // menuBtn.addEventListener('click',(e) => {
-  //   if(e.target.classList.contains('active')) return;
-  //     setActiveButton(menuBtn);
-  //     loadMenu();
-  // })
-
-  // const contactBtn = document.createElement('button');
-  // contactBtn.classList.add('btn-nav');
-  // contactBtn.textContent = 'Contact';
-  // contactBtn.addEventListener('click',(e) => {
-  //   if(e.target.classList.contains('active')) return;
-  //     setActiveButton(contactBtn);
-  //     loadContact();
-  // })
 
   nav.appendChild(createNavButton('Home', loadHome));
-  // nav.appendChild(createNavButton('Menu', loadMenu));
+  nav.appendChild(createNavButton('Menu', loadMenu));
   // nav.appendChild(createNavButton('Contact',loadContact));
 
   return nav;
@@ -63,7 +33,7 @@ function createNavButton(btnName, loadSection) {
   button.classList.add(`btn`,`btn-nav`,`btn-nav--${btnName.toLowerCase()}`);
   button.textContent = btnName;
   button.addEventListener('click',(e) => {
-    if(e.target.classList.contains('active')) return;
+    console.log('Ovde!')
     setActiveButton(button);
     loadSection();
   })
@@ -72,9 +42,11 @@ function createNavButton(btnName, loadSection) {
 }
 
 function setActiveButton(clickedBtn) {
+  console.log('set-active');
   const buttons = document.querySelectorAll('btn-nav');
+  console.log(buttons);
 
-  buttons.forEach(button => {
+  [...buttons].forEach(button => {
     console.log(`Iteration ${button} : Sent ${clickedBtn}`);
     if(button !== clickedBtn) button.classList.remove('active');
   })
@@ -92,8 +64,6 @@ function createSection() {
   return document.createElement('section');
 }
 
-
-//removeAttribute('class')
 
 function initalizeWebsite() {
   const content = document.getElementById('content');
