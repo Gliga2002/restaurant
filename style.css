@@ -226,3 +226,8 @@ body {
 strong {
   font-weight: 500;
 }
+
+img {
+  width:250px;
+  height:auto;
+}
