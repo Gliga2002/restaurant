@@ -9,25 +9,25 @@ const meals = [{
   calories: 650,
   nutriScore: 74,
   averageRating: 4.9,
-  reviewsNumbe: 537
+  reviewsNumber: 537
 },
 {
   img:'assets/meals/meal-2.jpg',
   name:'Avocado Salad',
-  category: ['vegen','paleo'],
+  category: ['vegan','paleo'],
   calories: 400,
   nutriScore: 92,
   averageRating: 4.8,
-  reviewsNumbe: 441
+  reviewsNumber: 441
 },
 {
   img:'assets/meals/meal--3.jpg',
   name:'Vegetable Salad',
-  category: ['vegen'],
+  category: ['vegan'],
   calories: 350,
   nutriScore: 85,
   averageRating: 4.7,
-  reviewsNumbe: 360
+  reviewsNumber: 360
 },
 {
   img:'assets/meals/meal--4.jpg',
@@ -36,16 +36,16 @@ const meals = [{
   calories: 600,
   nutriScore: 98,
   averageRating: 4.4,
-  reviewsNumbe: 390
+  reviewsNumber: 390
 },
 {
   img:'assets/meals/meal--5.jpg',
   name:'Rice with vegetables and meat',
-  category: ['meat','vegetable'],
+  category: ['meat','vegetarian'],
   calories: 800,
   nutriScore: 57,
   averageRating: 4.4,
-  reviewsNumbe: 367
+  reviewsNumber: 367
 },
 {
   img:'assets/meals/meal--6.jpg',
@@ -54,7 +54,7 @@ const meals = [{
   calories: 750,
   nutriScore: 34,
   averageRating: 4.6,
-  reviewsNumbe: 401
+  reviewsNumber: 401
 },
 {
   img:'assets/meals/meal--7.jpg',
@@ -63,7 +63,7 @@ const meals = [{
   calories: 400,
   nutriScore: 56,
   averageRating: 4.4,
-  reviewsNumbe: 251
+  reviewsNumber: 251
 },
 {
   img:'assets/meals/meal--8.jpg',
@@ -72,76 +72,72 @@ const meals = [{
   calories: 364,
   nutriScore: 95,
   averageRating: 4.3,
-  reviewsNumbe: 402
+  reviewsNumber: 402
 }];
 
 
 function createMenu() {
   const div = createDiv('menu', 'container');
 
-  div.appendChild(createHeadingSecondary('Omnifood AI chooses from 5,000+ recipes'));
+  const headingSecondaryContent = 'Omnifood AI chooses from 5,000+ recipes'
+  div.appendChild(createHeadingSecondary(headingSecondaryContent,'heading--secondary','center-text'));
 
-  div.appendChild(createMenuDiv());
+  div.appendChild(createMealsDiv());
 
-
-  div.appendChild(createAnchor('See all recipes →'));
-
-  return div;
-}
-
-
-function createMenuDiv() {
-  const div = createDiv('container', 'grid', 'grid--3-cols', 'margin-bottom-md');
-
-  div.appendChild(createMealDiv());
+  div.appendChild(createAllRecipesLink())
 
 
   return div;
 }
 
-function createMealDiv() {
-  const div = createDiv('meal');
+
+
+
+function createMealsDiv() {
+  const div = createDiv('meals', 'grid','margin-bottom--lg');
 
   let mealContent = '';
 
   meals.forEach((meal) => {
-    mealContent += createMealItem(meal)
+    mealContent += createMealItem(meal);
   })
 
   div.innerHTML = mealContent;
 
-  
 
   return div;
 }
 
+
 function createMealItem(meal) {
   return `
-  <img src=${meal.img} class='meal-img' alt=${meal.name} />
-  <div class='meal-content'>
-    <div class='meal-tags'>
-      ${getMealTag(meal).join(' ')}
+  <div class="meal">
+    <img src=${meal.img} class='meal-img' alt=${meal.name} />
+    <div class='meal-content'>
+      <div class='meal-tags flex gap--sm margin-bottom--sm'>
+        ${getMealTag(meal).join(' ')}
+      </div>
+      <p class='meal-title margin-bottom--md'>${meal.name}</p>
+      <ul class='meal-attributes flex flex-column gap--sm'>
+        <li class='meal-attribute flex gap--es'>
+          <ion-icon class='icon' name="flame-outline"></ion-icon>
+          <span><strong>${meal.calories}</strong> calories</span>
+        </li>
+        <li class='meal-attribute flex gap--es'>
+          <ion-icon class='icon' name="restaurant-outline"></ion-icon>
+          <span>NutriScore ® <strong>${meal.nutriScore}</strong></span>
+        </li>
+        <li class='meal-attribute flex gap--es'>
+        <ion-icon class='icon' name="star-outline"></ion-icon>
+        <span>
+          <strong>${meal.averageRating}</strong> rating (${meal.reviewsNumber})
+          
+        </span>
+        </li>
+      </ul>
     </div>
-    <p class='meal-title'>${meal.name}</p>
-    <ul class='meal-attributes'>
-      <li class='meal-attribute'>
-        <ion-icon name="flame-outline"></ion-icon>
-        <span>${meal.calories}</span>
-      </li>
-      <li class='meal-attribute'>
-        <ion-icon name="restaurant-outline"></ion-icon>
-        <span>${meal.nutriScore}</span>
-      </li>
-      <li class='meal-attribute'>
-      <ion-icon name="star-outline"></ion-icon>
-      <span>
-        ${meal.averageRating}
-        ${(meal.reviewsNumbe)}
-      </span>
-      </li>
-    </ul>
   </div>
-`
+  `
 }
 
 function getMealTag(meal) {
@@ -152,6 +148,18 @@ function getMealTag(meal) {
   })
 
   return mealTagsArrayEl;
+}
+
+function createAllRecipesLink() {
+  const div = createDiv('meals-link', 'center-text');
+
+  const anchorText = 'See all recipes →';
+  div.appendChild(createAnchor(anchorText,'all-recipe'));
+
+  return div;
+  
+
+
 }
 
 

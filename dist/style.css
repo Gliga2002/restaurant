@@ -8,10 +8,13 @@
   --color-white: #ffffff;
   --color-cream: #fdf2e9;
   --color-orange: #e67e22;
+  --color-orange--dark:rgb(188, 120, 61);
   --color-black: #45260a;
   --color-yellow: #ffd43b;
   --color-green: #51cf66;
-  --color-green--light: #94d82d
+  --color-green--light: #94d82d;
+  --color-red:#e95a5a;
+  --color-blue:#a9a9ea;
 
 }
 
@@ -31,10 +34,14 @@ body {
 }
 
 
-.section-menu,
+
 .section-contact,
 .section-home {
   padding: 4.8rem 0 9.6rem 0;
+}
+
+.section-menu {
+  padding:4.8rem 0 6rem 0;
 }
 
 .container {
@@ -52,10 +59,7 @@ body {
   height:300px;
 }
 
-.meal-img {
-  width:200px;
-  height: auto;
-}
+
 
 
 /* TEST */
@@ -67,6 +71,10 @@ body {
 /* REUSABLE Style */
 .flex {
   display:flex;
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 .flex-center{
@@ -86,6 +94,14 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
+.gap--es {
+  gap:1.4rem;
+}
+
+.gap--sm {
+  gap:1.8rem;
+}
+
 .gap--md {
   gap: 3.2rem;
 }
@@ -96,6 +112,10 @@ body {
 
 .gap--el {
   gap:9.6rem;
+}
+
+.margin-bottom--sm {
+  margin-bottom:1rem;
 }
 
 .margin-bottom--md {
@@ -116,6 +136,18 @@ body {
   margin-bottom: 3.2rem;
 
   color:var(--color-black);
+}
+
+.heading--secondary {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+
+  color:var(--color-black);
+}
+
+.center-text {
+  text-align: center;
 }
 
 .btn {
@@ -211,5 +243,97 @@ body {
 .hero-img {
   width:100%;
 }
+
+
+/* MENU */
+.meals {
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  column-gap: 7rem;
+  row-gap: 9.6rem;
+}
+
+.meal {
+  background-color: var(--color-white);
+  border-radius:9px;
+  overflow: hidden;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  transition: all 0.4s;
+}
+
+.meal:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.meal-img {
+  width:100%;
+  height: auto;
+}
+
+
+.meal-content {
+  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+
+.tag {
+  color:var(--color-black);
+  padding:0.4rem 0.8rem;
+  border-radius: 5px;
+
+  font-size: 1.2rem;
+
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.tag--vegan {
+  background-color: var(--color-green--light);
+}
+
+.tag--vegetarian {
+  background-color: var(--color-green);
+}
+
+.tag--paleo {
+  background-color: var(--color-yellow);
+}
+
+.tag--meat {
+  background-color: var(--color-red);
+}
+
+.tag--sea-food {
+  background-color: var(--color-blue);
+}
+
+.meal-title {
+  font-size:2.4rem;
+  color:var(--color-black);
+  font-weight: bold;
+}
+
+.meal-attribute {
+  font-size: 1.8rem;
+}
+
+.icon {
+  color: var(--color-orange);
+}
+
+.all-recipe {
+  display: inline-block;
+  color: var(--color-orange);
+  text-decoration: none;
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--color-orange);
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+.all-recipe:hover {
+  color:var(--color-orange--dark);
+  border-bottom: 1px solid transparent;
+}
+
+
 
 

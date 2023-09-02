@@ -19,7 +19,7 @@ export function createHeadingPrimary(content, ...classes) {
 export function createHeadingSecondary(content, ...classes) {
   const h2 = document.createElement('h2');
   h2.innerHTML = content
-  h2.classList.add('heading--secondary', ...classes);
+  h2.classList.add(...classes);
 
   return h2;
 }
