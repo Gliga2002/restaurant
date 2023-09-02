@@ -1,9 +1,12 @@
 import { createDiv, createHeadingTertiary, createSpan} from "./general";
+import L from "leaflet"
 
 function createContact() {
  const div =  createDiv('contact');
 
  div.appendChild(createContactContainer());
+
+
 
  return div;
 }
@@ -12,7 +15,10 @@ function createContact() {
 function createContactContainer() {
   const div = createDiv('contact-container');
   div.appendChild(createContactContainerInfo());
+
   div.appendChild(createContactContainerMap());
+ 
+
 
   return div;
 }
@@ -128,10 +134,25 @@ function createInput() {
 
 function createContactContainerMap() {
   const div = createDiv('contact-container--map');
+  div.setAttribute('id', 'map');
+
+
 
   return div;
 }
 
+
+function initLeaflet() {
+  var map = L.map('map').setView([51.505, -0.09], 13);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    .openPopup();
+}
 
 
 
@@ -146,6 +167,8 @@ function loadContact() {
   const section = document.querySelector('section');
   section.innerHTML = "";
   section.appendChild(createContact());
+  initLeaflet();
+
 }
 
 export default loadContact;
