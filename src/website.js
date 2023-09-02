@@ -13,6 +13,8 @@ function createHeader() {
   header.appendChild(imgLogo);
   header.appendChild(createNav());
 
+
+
   return header;
 }
 
@@ -27,16 +29,6 @@ function createNav() {
   nav.appendChild(createNavButton('Menu', loadMenu));
   nav.appendChild(createNavButton('Contact',loadContact));
 
-  // nav.addEventListener('click',(e) => {
-  //   console.log('sdasdasd')
-  //   console.log(e.target)
-  //   const btnNav = e.target.closest('btn')
-  //   if(!btnNav) return;
-  //   console.log(btnNav);
-  // })
-
-  // remove all active buttons imas gresku
-
   return nav;
 }
 
@@ -48,6 +40,7 @@ function createNavButton(btnName, loadSection) {
   button.textContent = btnName;
   button.addEventListener('click',(e) => {
     console.log('Ovde!')
+    if(e.target.classList.contains('active')) return;
     setActiveButton(button);
     loadSection();
   })
@@ -56,9 +49,17 @@ function createNavButton(btnName, loadSection) {
 }
 
 
-// ispravi
-function setActiveButton(clickedBtn) { 
-  clickedBtn.classList.add('active');
+
+function setActiveButton(button) { 
+  const buttons = document.querySelectorAll(".btn-nav");
+
+  buttons.forEach((button) => {
+    if (button !== this) {
+      button.classList.remove("active");
+    }
+  });
+
+  button.classList.add("active");
  
 }
 
