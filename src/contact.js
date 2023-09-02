@@ -2,7 +2,7 @@ import { createDiv, createHeadingTertiary, createSpan} from "./general";
 import L from "leaflet"
 
 function createContact() {
- const div =  createDiv('contact');
+ const div =  createDiv('contact','container');
 
  div.appendChild(createContactContainer());
 
@@ -165,6 +165,8 @@ function initLeaflet() {
 
 function loadContact() {
   const section = document.querySelector('section');
+  section.setAttribute('class','');
+  section.classList.add('section-contact');
   section.innerHTML = "";
   section.appendChild(createContact());
   initLeaflet();

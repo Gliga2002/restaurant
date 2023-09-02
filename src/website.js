@@ -7,7 +7,7 @@ import {createImg} from './general';
 
 function createHeader() {
   const header = document.createElement('header');
-  header.classList.add('header');
+  header.classList.add('header','flex');
 
   const imgLogo = createImg('assets/omnifood-logo.png', 'logo','logo');
   header.appendChild(imgLogo);
@@ -20,11 +20,22 @@ function createHeader() {
 
 function createNav() {
   const nav = document.createElement('nav');
+  nav.classList.add('header-nav', 'flex', 'gap--lg');
 
 
   nav.appendChild(createNavButton('Home', loadHome));
   nav.appendChild(createNavButton('Menu', loadMenu));
   nav.appendChild(createNavButton('Contact',loadContact));
+
+  // nav.addEventListener('click',(e) => {
+  //   console.log('sdasdasd')
+  //   console.log(e.target)
+  //   const btnNav = e.target.closest('btn')
+  //   if(!btnNav) return;
+  //   console.log(btnNav);
+  // })
+
+  // remove all active buttons imas gresku
 
   return nav;
 }
@@ -32,6 +43,8 @@ function createNav() {
 function createNavButton(btnName, loadSection) {
   const button = document.createElement('button');
   button.classList.add(`btn`,`btn-nav`,`btn-nav--${btnName.toLowerCase()}`);
+
+  
   button.textContent = btnName;
   button.addEventListener('click',(e) => {
     console.log('Ovde!')
@@ -42,17 +55,11 @@ function createNavButton(btnName, loadSection) {
   return button;
 }
 
-function setActiveButton(clickedBtn) {
-  console.log('set-active');
-  const buttons = document.querySelectorAll('btn-nav');
-  console.log(buttons);
 
-  [...buttons].forEach(button => {
-    console.log(`Iteration ${button} : Sent ${clickedBtn}`);
-    if(button !== clickedBtn) button.classList.remove('active');
-  })
-
+// ispravi
+function setActiveButton(clickedBtn) { 
   clickedBtn.classList.add('active');
+ 
 }
 
 function createMain() {

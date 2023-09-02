@@ -21,7 +21,7 @@ const meals = [{
   reviewsNumbe: 441
 },
 {
-  img:'assets/meals/meal-3.jpg',
+  img:'assets/meals/meal--3.jpg',
   name:'Vegetable Salad',
   category: ['vegen'],
   calories: 350,
@@ -30,7 +30,7 @@ const meals = [{
   reviewsNumbe: 360
 },
 {
-  img:'assets/meals/meal-4.jpg',
+  img:'assets/meals/meal--4.jpg',
   name:'Spread Steak',
   category: ['meat'],
   calories: 600,
@@ -39,7 +39,7 @@ const meals = [{
   reviewsNumbe: 390
 },
 {
-  img:'assets/meals/meal-5.jpg',
+  img:'assets/meals/meal--5.jpg',
   name:'Rice with vegetables and meat',
   category: ['meat','vegetable'],
   calories: 800,
@@ -48,7 +48,7 @@ const meals = [{
   reviewsNumbe: 367
 },
 {
-  img:'assets/meals/meal-6.jpg',
+  img:'assets/meals/meal--6.jpg',
   name:'Chicken breast with vegetables',
   category: ['meat'],
   calories: 750,
@@ -57,7 +57,7 @@ const meals = [{
   reviewsNumbe: 401
 },
 {
-  img:'assets/meals/meal-7.jpg',
+  img:'assets/meals/meal--7.jpg',
   name:'Vegetable salad',
   category: ['vegan'],
   calories: 400,
@@ -66,7 +66,7 @@ const meals = [{
   reviewsNumbe: 251
 },
 {
-  img:'assets/meals/meal-8.jpg',
+  img:'assets/meals/meal--8.jpg',
   name:'Shrimps',
   category: ['sea-food'],
   calories: 364,
@@ -77,8 +77,7 @@ const meals = [{
 
 
 function createMenu() {
-  const div = document.createElement('div');
-  div.classList.add('menu');
+  const div = createDiv('menu', 'container');
 
   div.appendChild(createHeadingSecondary('Omnifood AI chooses from 5,000+ recipes'));
 
@@ -160,6 +159,8 @@ function getMealTag(meal) {
 
 function loadMenu() {
   const section = document.querySelector('section');
+  section.setAttribute('class','');
+  section.classList.add('section-menu');
   section.innerHTML = "";
   section.appendChild(createMenu());
 }

@@ -1,6 +1,7 @@
 // import img
 import { createImg } from "./website";
-import {createHeadingPrimary, createParagraph, createButton} from './general';
+import {createHeadingPrimary, createParagraph, createButton, createDiv} from './general';
+
 
 
 const imgArray = [
@@ -14,8 +15,8 @@ const imgArray = [
 
 
 function createHome() {
- const div = document.createElement('div');
- div.classList.add('home');
+
+const div = createDiv('home', 'container', 'grid','grid--2-column', 'gap--el');
 
  div.appendChild(homeTextBox());
  div.appendChild(homeImgBox());
@@ -24,35 +25,41 @@ function createHome() {
 }
 
 function homeTextBox() {
-  const homeTextBox = document.createElement('div');
-  homeTextBox.classList.add('home-text-box');
+  const div = createDiv('home-text-box');
 
-  homeTextBox.appendChild(createHeadingPrimary('A healthy meal delivered to your door, every single day'));
-  homeTextBox.appendChild(createParagraph('The smart 365-days-per-year food subscription that will make you eat healthy again. Tailored to your personal tastes and nutritional needs.'))
-  homeTextBox.appendChild(createButton('Start eating well','btn','btn--full'))
-  homeTextBox.appendChild(createButton('Learn more','btn','btn--outline'))
+  
+  const headingPrimary = 'A healthy meal delivered to your door, every single day';
+  div.appendChild(createHeadingPrimary(headingPrimary,'heading--primary'));
 
-  homeTextBox.appendChild(deliveredMeals());
+  const descriptionText = 'The smart 365-days-per-year food subscription that will make you eat healthy again. Tailored to your personal tastes and nutritional needs.'
+  div.appendChild(createParagraph(descriptionText, 'hero-description'))
 
-  return homeTextBox
+
+  const btnCTAcontent = 'Start eating well'
+  div.appendChild(createButton(btnCTAcontent,'btn','btn--full','margin-right--md'))
+  const btnInfoContent = 'Learn more';
+  div.appendChild(createButton(btnInfoContent,'btn','btn--outline'))
+
+  div.appendChild(deliveredMeals());
+
+  return div;
 
 }
 
 
 function homeImgBox() {
 
-  const homeImgBox = document.createElement('div');
-  homeImgBox.classList.add('home-img-box');
+  const div = createDiv('home-img-box');
 
-   createImg('assets/hero.png','Women enjoying food','hero-img');
 
-   return homeImgBox
+   div.append(createImg('assets/hero.png','Women enjoying food','hero-img'));
+
+   return div;
 }
 
 
 function deliveredMeals() {
-  const div = document.createElement('div');
-  div.classList.add('delivered-meals');
+  const div = createDiv('delivered-meals');
 
   div.appendChild(deliveredImgs());
   div.appendChild(deliveredText());
@@ -63,8 +70,7 @@ function deliveredMeals() {
 
 
 function deliveredImgs() {
-  const div = document.createElement('div');
-  div.classList.add('delivered-imgs');
+ const div = createDiv('delivered-meals-imgs')
 
   imgArray.forEach((url) => {
     div.appendChild(createImg(url, 'customer', 'customer-img'))
@@ -76,16 +82,18 @@ function deliveredImgs() {
 
 function deliveredText() {
   const p = document.createElement('p');
-  p.classList.add('delivered-text');
-  p.textContent = `<span>250,000+ <span>meals delivered last year!`;
+  p.classList.add('delivered-meals-text');
+  p.innerHTML = `<span>250,000+ </span>meals delivered last year!`;
 
   return p;
 }
 
+// refaktorisi ovaj kod
 function loadHome() {
   const section = document.querySelector('section');
+  section.setAttribute('class','');
+  section.classList.add('section-home');
   section.textContent = '';
-  section.removeAttribute('class');
   section.appendChild(createHome());
 }
 

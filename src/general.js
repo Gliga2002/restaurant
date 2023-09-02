@@ -1,16 +1,17 @@
 
-export function createImg(url, imgName, classes) {
+export function createImg(url, imgName, clas) {
+
   const img = document.createElement('img');
   img.setAttribute('src', url);
   img.setAttribute('alt', imgName);
-  img.classList.add(...classes)
+  img.classList.add(clas)
   return img;
 }
 
 export function createHeadingPrimary(content, ...classes) {
   const h1 = document.createElement('h1');
   h1.innerHTML = content
-  h1.classList.add('heading--primary', ...classes);
+  h1.classList.add(...classes);
 
   return h1;
 }
