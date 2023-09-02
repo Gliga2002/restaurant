@@ -1,30 +1,21 @@
-import { createDiv, createHeadingTertiary, createSpan} from "./general";
+import { createButton, createDiv, createHeadingTertiary, createSpan} from "./general";
 import L from "leaflet"
 
 function createContact() {
- const div =  createDiv('contact','container');
+ const div =  createDiv('contact','container', 'grid');
 
- div.appendChild(createContactContainer());
+ div.appendChild(createContactContainerInfo());
 
+ div.appendChild(createContactContainerMap());
 
 
  return div;
 }
 
 
-function createContactContainer() {
-  const div = createDiv('contact-container');
-  div.appendChild(createContactContainerInfo());
-
-  div.appendChild(createContactContainerMap());
- 
-
-
-  return div;
-}
 
 function createContactContainerInfo() {
-  const div = createDiv('contact-container--info');
+  const div = createDiv('contact-container--info','flex', 'flex-column','gap--sm','font-size--sm');
 
   div.appendChild(createAddress())
 
@@ -42,7 +33,7 @@ function createAddress() {
 
   const p = document.createElement('p');
   p.innerHTML = `
-  <ion-icon name="location-outline"></ion-icon>
+  <ion-icon class="icon margin-right--es" name="location-outline"></ion-icon>
   1024 Oakwood Ave
   <br />
   San Diego, CA 22434
@@ -57,7 +48,7 @@ function createHours() {
 
   const p = document.createElement('p');
   p.innerHTML = `
-  <ion-icon name="time-outline"></ion-icon>
+  <ion-icon  class="icon margin-right--es" name="time-outline"></ion-icon>
   <span>Mon-Thurs:</span>
   '8-am-8pm'
   <br />
@@ -74,7 +65,7 @@ function createPhone() {
 
   const p = document.createElement('p');
   p.innerHTML = `
-  <ion-icon name="call-outline"></ion-icon>
+  <ion-icon class="icon margin-right--es" name="call-outline"></ion-icon>
   '(222)-888 5555'
   `
 
@@ -85,14 +76,17 @@ function createPhone() {
 
 function createContactForm() {
   const form = document.createElement('form');
+  form.classList.add('flex', 'flex-column', 'gap--md')
   
- form.appendChild(createHeadingTertiary(`<ion-icon name="mail-outline"></ion-icon>
- Message Us
- `));
+ const headingTertiaryContent = `<ion-icon class="icon margin-right--es"name="mail-outline"></ion-icon>
+ Message Us `;
+ form.appendChild(createHeadingTertiary(headingTertiaryContent,'flex','flex-center--vert','margin-bottom--es'));
 
  form.appendChild(createInputBox('Full Name'))
  form.appendChild(createInputBox('Email'))
  form.appendChild(createInputBox('Type your message...'))
+
+ form.appendChild(createButton('Send','btn','btn-form'))
 
 
 return form;
@@ -103,7 +97,10 @@ function createInputBox(placeholder) {
   const div = createDiv('input-box');
 
   div.appendChild(createInput());
-  div.appendChild(createSpan(placeholder))
+
+  const span = createSpan(placeholder)
+  span.classList.add('placeholder')
+  div.appendChild(span)
   
 
   return div;

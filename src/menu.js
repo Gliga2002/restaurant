@@ -84,7 +84,7 @@ function createMenu() {
 
   div.appendChild(createMealsDiv());
 
-  div.appendChild(createAllRecipesLink())
+  div.appendChild(createAllRecipesLink());
 
 
   return div;
