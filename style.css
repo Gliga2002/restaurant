@@ -231,3 +231,9 @@ img {
   width:250px;
   height:auto;
 }
+
+
+/* TEST */
+.contact-container--map {
+  height: 180px;
+}
