@@ -121,7 +121,7 @@ function createMealItem(meal) {
   <img src=${meal.img} class='meal-img' alt=${meal.name} />
   <div class='meal-content'>
     <div class='meal-tags'>
-     ${meal.category.forEach((meal) => `<span class='tag tag--${meal}'></span> `)}">${meal.name}</span>
+      ${getMealTag(meal).join(' ')}
     </div>
     <p class='meal-title'>${meal.name}</p>
     <ul class='meal-attributes'>
@@ -143,6 +143,16 @@ function createMealItem(meal) {
     </ul>
   </div>
 `
+}
+
+function getMealTag(meal) {
+  let mealTagsArrayEl;
+  console.log(meal.category);
+  mealTagsArrayEl = meal.category.map((item) => {
+    return  `<span class='tag tag--${item}'>${item}</span>`
+  })
+
+  return mealTagsArrayEl;
 }
 
 
