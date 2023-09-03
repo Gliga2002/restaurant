@@ -76,11 +76,11 @@ function createPhone() {
 
 function createContactForm() {
   const form = document.createElement('form');
-  form.classList.add('flex', 'flex-column', 'gap--md')
+  form.classList.add('flex', 'flex-column');
   
  const headingTertiaryContent = `<ion-icon class="icon margin-right--es"name="mail-outline"></ion-icon>
  Message Us `;
- form.appendChild(createHeadingTertiary(headingTertiaryContent,'flex','flex-center--vert','margin-bottom--es'));
+ form.appendChild(createHeadingTertiary(headingTertiaryContent,'flex','flex-center--vert','margin-bottom--md'));
 
  form.appendChild(createInputBox('Full Name'))
  form.appendChild(createInputBox('Email'))
@@ -88,10 +88,32 @@ function createContactForm() {
 
  form.appendChild(createButton('Send','btn','btn-form'))
 
+ let prevClickedSpan;
+ 
+ form.addEventListener('click',(e) => {
+  const inputBoxEl = e.target.closest('.input-box');
+
+  console.log(prevClickedSpan);
+  if(!inputBoxEl) {
+    if(prevClickedSpan) prevClickedSpan.classList.remove('clicked');
+
+    return;
+  }
+
+  if(prevClickedSpan) prevClickedSpan.classList.remove('clicked');
+
+  let spanEl = inputBoxEl.lastChild;
+
+  spanEl.classList.add('clicked');
+  prevClickedSpan = spanEl;
+  console.log(prevClickedSpan);
+
+  inputBoxEl.firstChild.focus();
+ })
 
 return form;
-
 }
+
 
 function createInputBox(placeholder) {
   const div = createDiv('input-box');
