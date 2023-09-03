@@ -1,5 +1,6 @@
 import { createAnchor, createDiv, createHeadingSecondary } from "./general";
 
+
 import meal1 from './assets/meals/meal-1.jpg';
 import meal2 from './assets/meals/meal-2.jpg';
 import meal3 from './assets/meals/meal--3.jpg';
