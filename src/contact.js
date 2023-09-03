@@ -87,26 +87,27 @@ function createContactForm() {
  form.appendChild(createInputBox('Type your message...'))
 
  form.appendChild(createButton('Send','btn','btn-form'))
-
- let prevClickedSpan;
  
+
+ let _prevClickedSpan;
+
  form.addEventListener('click',(e) => {
   const inputBoxEl = e.target.closest('.input-box');
 
-  console.log(prevClickedSpan);
+  console.log(_prevClickedSpan);
   if(!inputBoxEl) {
-    if(prevClickedSpan) prevClickedSpan.classList.remove('clicked');
+    if(_prevClickedSpan) _prevClickedSpan.classList.remove('clicked');
 
     return;
   }
 
-  if(prevClickedSpan) prevClickedSpan.classList.remove('clicked');
+  if(_prevClickedSpan) _prevClickedSpan.classList.remove('clicked');
 
   let spanEl = inputBoxEl.lastChild;
 
   spanEl.classList.add('clicked');
-  prevClickedSpan = spanEl;
-  console.log(prevClickedSpan);
+  _prevClickedSpan = spanEl;
+  console.log(_prevClickedSpan);
 
   inputBoxEl.firstChild.focus();
  })
@@ -162,14 +163,14 @@ function createContactContainerMap() {
 
 
 function initLeaflet() {
-  var map = L.map('map').setView([51.505, -0.09], 13);
+  var map = L.map('map').setView([32.8245525, -117.1089785], 13);
 
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+  L.marker([32.8245525, -117.1089785]).addTo(map)
+    .bindPopup('We are here')
     .openPopup();
 }
 
