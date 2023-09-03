@@ -1,5 +1,4 @@
-import { createAnchor, createDiv, createHeadingSecondary } from "./general";
-
+import { createAnchor, createDiv, createHeadingSecondary, setSection} from "./general";
 
 import meal1 from './assets/meals/meal-1.jpg';
 import meal2 from './assets/meals/meal-2.jpg';
@@ -9,8 +8,6 @@ import meal5 from './assets/meals/meal--5.jpg';
 import meal6 from './assets/meals/meal--6.jpg';
 import meal7 from './assets/meals/meal--7.jpg';
 import meal8 from './assets/meals/meal--8.jpg';
-
-
 
 const meals = [{
   img:meal1,
@@ -96,7 +93,6 @@ function createMenu() {
 
   div.appendChild(createAllRecipesLink());
 
-
   return div;
 }
 
@@ -113,7 +109,6 @@ function createMealsDiv() {
   })
 
   div.innerHTML = mealContent;
-
 
   return div;
 }
@@ -141,7 +136,6 @@ function createMealItem(meal) {
         <ion-icon class='icon' name="star-outline"></ion-icon>
         <span>
           <strong>${meal.averageRating}</strong> rating (${meal.reviewsNumber})
-          
         </span>
         </li>
       </ul>
@@ -152,7 +146,7 @@ function createMealItem(meal) {
 
 function getMealTag(meal) {
   let mealTagsArrayEl;
-  console.log(meal.category);
+
   mealTagsArrayEl = meal.category.map((item) => {
     return  `<span class='tag tag--${item}'>${item}</span>`
   })
@@ -167,19 +161,10 @@ function createAllRecipesLink() {
   div.appendChild(createAnchor(anchorText,'all-recipe'));
 
   return div;
-  
-
-
 }
 
-
-
-
 function loadMenu() {
-  const section = document.querySelector('section');
-  section.setAttribute('class','');
-  section.classList.add('section-menu');
-  section.innerHTML = "";
+  const section = setSection('section-menu');
   section.appendChild(createMenu());
 }
 

@@ -1,6 +1,4 @@
-// import img
-import { createImg } from "./website";
-import {createHeadingPrimary, createParagraph, createButton, createDiv} from './general';
+import {createHeadingPrimary, createParagraph, createButton, createDiv, setSection, createImg} from './general';
 
 import customerBenImg from './assets/customers/ben.jpg';
 import customer1Img from './assets/customers/customer-1.jpg';
@@ -11,10 +9,6 @@ import customer6Img from './assets/customers/customer-6.jpg';
 
 import heroImg from './assets/hero.png';
 
-
-
-
-
 const imgArray = [
   customerBenImg, 
   customer1Img,
@@ -24,9 +18,7 @@ const imgArray = [
   customer6Img
 ]
 
-
 function createHome() {
-
 const div = createDiv('home', 'container', 'grid','grid--2-column', 'gap--el');
 
  div.appendChild(homeTextBox());
@@ -38,11 +30,11 @@ const div = createDiv('home', 'container', 'grid','grid--2-column', 'gap--el');
 function homeTextBox() {
   const div = createDiv('home-text-box');
 
-  
   const headingPrimary = 'A healthy meal delivered to your door, every single day';
   div.appendChild(createHeadingPrimary(headingPrimary,'heading--primary'));
 
-  const descriptionText = 'The smart 365-days-per-year food subscription that will make you eat healthy again. Tailored to your personal tastes and nutritional needs.'
+  const descriptionText = `The smart 365-days-per-year food subscription that 
+  will make you eat healthy again. Tailored to your personal tastes and nutritional needs.`
   div.appendChild(createParagraph(descriptionText, 'hero-description'))
 
 
@@ -54,18 +46,14 @@ function homeTextBox() {
   div.appendChild(deliveredMeals());
 
   return div;
-
 }
 
-
 function homeImgBox() {
-
   const div = createDiv('home-img-box');
 
+  div.append(createImg(heroImg,'Women enjoying food','hero-img'));
 
-   div.append(createImg(heroImg,'Women enjoying food','hero-img'));
-
-   return div;
+  return div;
 }
 
 
@@ -76,7 +64,6 @@ function deliveredMeals() {
   div.appendChild(deliveredText());
 
   return div;
-
 }
 
 
@@ -99,12 +86,11 @@ function deliveredText() {
   return p;
 }
 
+
+
 // refaktorisi ovaj kod
 function loadHome() {
-  const section = document.querySelector('section');
-  section.setAttribute('class','');
-  section.classList.add('section-home');
-  section.textContent = '';
+  const section = setSection('section-home');
   section.appendChild(createHome());
 }
 

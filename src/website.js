@@ -15,8 +15,6 @@ function createHeader() {
   header.appendChild(imgLogo);
   header.appendChild(createNav());
 
-
-
   return header;
 }
 
@@ -25,7 +23,6 @@ function createHeader() {
 function createNav() {
   const nav = document.createElement('nav');
   nav.classList.add('header-nav', 'flex', 'gap--lg');
-
 
   nav.appendChild(createNavButton('Home', loadHome));
   nav.appendChild(createNavButton('Menu', loadMenu));
@@ -38,10 +35,8 @@ function createNavButton(btnName, loadSection) {
   const button = document.createElement('button');
   button.classList.add(`btn`,`btn-nav`,`btn-nav--${btnName.toLowerCase()}`);
 
-  
   button.textContent = btnName;
   button.addEventListener('click',(e) => {
-    console.log('Ovde!')
     if(e.target.classList.contains('active')) return;
     setActiveButton(button);
     loadSection();
@@ -62,7 +57,6 @@ function setActiveButton(button) {
   });
 
   button.classList.add("active");
- 
 }
 
 function createMain() {
@@ -74,7 +68,6 @@ function createMain() {
 function createSection() {
   return document.createElement('section');
 }
-
 
 function initalizeWebsite() {
   const content = document.getElementById('content');

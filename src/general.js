@@ -73,6 +73,15 @@ export function createSpan(content,...classes) {
   return span;
 }
 
+export function setSection(sectionName) {
+  const section = document.querySelector('section');
+  section.setAttribute('class','');
+  section.classList.add(sectionName);
+  section.innerHTML = "";
+
+  return section;
+}
+
 
 
 

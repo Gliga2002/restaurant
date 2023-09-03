@@ -1,4 +1,4 @@
-import { createButton, createDiv, createHeadingTertiary, createSpan} from "./general";
+import { createButton, createDiv, createHeadingTertiary, createSpan, setSection} from "./general";
 import L from "leaflet";
 
 
@@ -12,8 +12,6 @@ function createContact() {
 
  return div;
 }
-
-
 
 function createContactContainerInfo() {
   const div = createDiv('contact-container--info','flex', 'flex-column','gap--sm','font-size--sm');
@@ -69,53 +67,47 @@ function createPhone() {
   <ion-icon class="icon margin-right--es" name="call-outline"></ion-icon>
   '(222)-888 5555'
   `
-
   div.appendChild(p);
 
   return div;
 }
 
 function createContactForm() {
+  let _prevClickedSpan;
+
   const form = document.createElement('form');
   form.classList.add('flex', 'flex-column');
-  
- const headingTertiaryContent = `<ion-icon class="icon margin-right--es"name="mail-outline"></ion-icon>
- Message Us `;
- form.appendChild(createHeadingTertiary(headingTertiaryContent,'flex','flex-center--vert','margin-bottom--md'));
 
- form.appendChild(createInputBox('Full Name'))
- form.appendChild(createInputBox('Email'))
- form.appendChild(createInputBox('Type your message...'))
+  const headingTertiaryContent = `<ion-icon class="icon margin-right--es"name="mail-outline"></ion-icon>
+  Message Us `;
+  form.appendChild(createHeadingTertiary(headingTertiaryContent,'flex','flex-center--vert','margin-bottom--md'));
 
- form.appendChild(createButton('Send','btn','btn-form'))
- 
+  form.appendChild(createInputBox('Full Name'))
+  form.appendChild(createInputBox('Email'))
+  form.appendChild(createInputBox('Type your message...'))
 
- let _prevClickedSpan;
+  form.appendChild(createButton('Send','btn','btn-form'))
 
- form.addEventListener('click',(e) => {
+  form.addEventListener('click',(e) => {
   const inputBoxEl = e.target.closest('.input-box');
 
-  console.log(_prevClickedSpan);
   if(!inputBoxEl) {
     if(_prevClickedSpan) _prevClickedSpan.classList.remove('clicked');
 
     return;
   }
-
   if(_prevClickedSpan) _prevClickedSpan.classList.remove('clicked');
 
   let spanEl = inputBoxEl.lastChild;
 
   spanEl.classList.add('clicked');
   _prevClickedSpan = spanEl;
-  console.log(_prevClickedSpan);
 
   inputBoxEl.firstChild.focus();
- })
+  })
 
-return form;
+  return form;
 }
-
 
 function createInputBox(placeholder) {
   const div = createDiv('input-box');
@@ -126,11 +118,8 @@ function createInputBox(placeholder) {
   span.classList.add('placeholder')
   div.appendChild(span)
   
-
   return div;
   
-
-
 }
 
 function createInput() {
@@ -141,23 +130,9 @@ function createInput() {
   return input;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 function createContactContainerMap() {
   const div = createDiv('contact-container--map');
   div.setAttribute('id', 'map');
-
-
 
   return div;
 }
@@ -175,23 +150,10 @@ function initLeaflet() {
     .openPopup();
 }
 
-
-
-
-
-
-
-
-
-
 function loadContact() {
-  const section = document.querySelector('section');
-  section.setAttribute('class','');
-  section.classList.add('section-contact');
-  section.innerHTML = "";
+  const section = setSection('section-contact')
   section.appendChild(createContact());
   initLeaflet();
-
 }
 
 export default loadContact;
