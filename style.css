@@ -347,6 +347,11 @@ body {
 
 .input-box {
   position:relative;
+  margin-bottom:3.2rem;
+}
+
+.input-box:last-of-type {
+  margin-bottom: 1.5rem;
 }
 
 .input-box input {
@@ -355,13 +360,28 @@ body {
   width:80%;
   border-bottom: 2px solid var(--color-black);
   background-color: var(--color-cream);
+  
+}
+
+.input-box span {
+  transition: all 0.3s;
 }
 
 .placeholder {
   position: absolute;
   left: 0;
   top:-0.75px;
+
 }
+
+.clicked,
+input:valid + span{
+  left:0;
+  top:-12px;
+  font-size: 1.2rem;
+  opacity:0.8;
+}
+
 
 
 
