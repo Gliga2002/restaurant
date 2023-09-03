@@ -1,5 +1,6 @@
 import { createButton, createDiv, createHeadingTertiary, createSpan} from "./general";
-import L from "leaflet"
+import L from "leaflet";
+
 
 function createContact() {
  const div =  createDiv('contact','container', 'grid');

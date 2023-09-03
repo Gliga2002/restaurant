@@ -2,15 +2,26 @@
 import { createImg } from "./website";
 import {createHeadingPrimary, createParagraph, createButton, createDiv} from './general';
 
+import customerBenImg from './assets/customers/ben.jpg';
+import customer1Img from './assets/customers/customer-1.jpg';
+import customer2Img from './assets/customers/customer-2.jpg';
+import customer3Img from './assets/customers/customer-3.jpg';
+import customer4Img from './assets/customers/customer-4.jpg';
+import customer6Img from './assets/customers/customer-6.jpg';
+
+import heroImg from './assets/hero.png';
+
+
+
 
 
 const imgArray = [
-  'assets/customers/ben.jpg', 
-  'assets/customers/customer-1.jpg',
-  'assets/customers/customer-2.jpg',
-  'assets/customers/customer-3.jpg',
-  'assets/customers/customer-4.jpg',
-  'assets/customers/customer-6.jpg'
+  customerBenImg, 
+  customer1Img,
+  customer2Img,
+  customer3Img,
+  customer4Img,
+  customer6Img
 ]
 
 
@@ -52,7 +63,7 @@ function homeImgBox() {
   const div = createDiv('home-img-box');
 
 
-   div.append(createImg('assets/hero.png','Women enjoying food','hero-img'));
+   div.append(createImg(heroImg,'Women enjoying food','hero-img'));
 
    return div;
 }

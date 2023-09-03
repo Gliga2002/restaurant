@@ -1,9 +1,18 @@
 import { createAnchor, createDiv, createHeadingSecondary } from "./general";
 
+import meal1 from './assets/meals/meal-1.jpg';
+import meal2 from './assets/meals/meal-2.jpg';
+import meal3 from './assets/meals/meal--3.jpg';
+import meal4 from './assets/meals/meal--4.jpg';
+import meal5 from './assets/meals/meal--5.jpg';
+import meal6 from './assets/meals/meal--6.jpg';
+import meal7 from './assets/meals/meal--7.jpg';
+import meal8 from './assets/meals/meal--8.jpg';
+
 
 
 const meals = [{
-  img:'assets/meals/meal-1.jpg',
+  img:meal1,
   name:'Japanese Gyozas',
   category: ['vegetarian'],
   calories: 650,
@@ -12,7 +21,7 @@ const meals = [{
   reviewsNumber: 537
 },
 {
-  img:'assets/meals/meal-2.jpg',
+  img:meal2,
   name:'Avocado Salad',
   category: ['vegan','paleo'],
   calories: 400,
@@ -21,7 +30,7 @@ const meals = [{
   reviewsNumber: 441
 },
 {
-  img:'assets/meals/meal--3.jpg',
+  img:meal3,
   name:'Vegetable Salad',
   category: ['vegan'],
   calories: 350,
@@ -30,7 +39,7 @@ const meals = [{
   reviewsNumber: 360
 },
 {
-  img:'assets/meals/meal--4.jpg',
+  img:meal4,
   name:'Spread Steak',
   category: ['meat'],
   calories: 600,
@@ -39,7 +48,7 @@ const meals = [{
   reviewsNumber: 390
 },
 {
-  img:'assets/meals/meal--5.jpg',
+  img:meal5,
   name:'Rice with vegetables and meat',
   category: ['meat','vegetarian'],
   calories: 800,
@@ -48,7 +57,7 @@ const meals = [{
   reviewsNumber: 367
 },
 {
-  img:'assets/meals/meal--6.jpg',
+  img:meal6,
   name:'Chicken breast with vegetables',
   category: ['meat'],
   calories: 750,
@@ -57,7 +66,7 @@ const meals = [{
   reviewsNumber: 401
 },
 {
-  img:'assets/meals/meal--7.jpg',
+  img:meal7,
   name:'Vegetable salad',
   category: ['vegan'],
   calories: 400,
@@ -66,7 +75,7 @@ const meals = [{
   reviewsNumber: 251
 },
 {
-  img:'assets/meals/meal--8.jpg',
+  img:meal8,
   name:'Shrimps',
   category: ['sea-food'],
   calories: 364,

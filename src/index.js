@@ -1,6 +1,8 @@
+import './css/style.css';
+import './css/general.css';
+
 import {initalizeWebsite} from "./website";
 
-console.log('Jel radi?');
 
 initalizeWebsite();
 

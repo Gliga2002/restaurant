@@ -4,12 +4,14 @@ import loadMenu from './menu';
 import loadContact from "./contact";
 import {createImg} from './general';
 
+import logoImg from './assets/omnifood-logo.png';
+
 
 function createHeader() {
   const header = document.createElement('header');
   header.classList.add('header','flex');
 
-  const imgLogo = createImg('assets/omnifood-logo.png', 'logo','logo');
+  const imgLogo = createImg(logoImg, 'logo','logo');
   header.appendChild(imgLogo);
   header.appendChild(createNav());
 
