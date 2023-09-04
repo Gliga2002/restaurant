@@ -2,12 +2,12 @@ import { createAnchor, createDiv, createHeadingSecondary, setSection} from "./ge
 
 import meal1 from './assets/meals/meal-1.jpg';
 import meal2 from './assets/meals/meal-2.jpg';
-import meal3 from './assets/meals/meal--3.jpg';
-import meal4 from './assets/meals/meal--4.jpg';
-import meal5 from './assets/meals/meal--5.jpg';
-import meal6 from './assets/meals/meal--6.jpg';
-import meal7 from './assets/meals/meal--7.jpg';
-import meal8 from './assets/meals/meal--8.jpg';
+import meal3 from './assets/meals/meal-3.jpg';
+import meal4 from './assets/meals/meal-4.jpg';
+import meal5 from './assets/meals/meal-5.jpg';
+import meal6 from './assets/meals/meal-6.jpg';
+import meal7 from './assets/meals/meal-7.jpg';
+import meal8 from './assets/meals/meal-8.jpg';
 
 const meals = [{
   img:meal1,
