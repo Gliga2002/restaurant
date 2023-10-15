@@ -1,17 +1,15 @@
-
 /* HEADER */
 
 .header {
   justify-content: space-between;
   align-items: center;
-  padding:0 4.8rem;
-  height:9.6rem;
+  padding: 0 4.8rem;
+  height: 9.6rem;
 }
 
 .logo {
   height: 2.2rem;
 }
-
 
 /* SECTION HOME */
 .hero-description {
@@ -29,18 +27,15 @@
   border: 3px solid #fdf2e9;
 }
 
-
 .delivered-meals {
-  margin-top:5rem;
-  display:flex;
+  margin-top: 5rem;
+  display: flex;
   align-items: center;
-  gap:3rem;
-
+  gap: 3rem;
 }
 
 .delivered-meals-imgs {
   display: flex;
-
 }
 
 .delivered-meals-text {
@@ -49,27 +44,34 @@
 }
 
 .delivered-meals-text span {
-  color:var(--color-orange);
+  color: var(--color-orange);
 }
-
 
 /* HOME-IMG-BOX */
 
 .hero-img {
-  width:100%;
+  width: 100%;
+  filter: blur(30px);
 }
 
+.load-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: var(--color-cream)
+}
 
 /* MENU */
 .meals {
-  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   column-gap: 7rem;
   row-gap: 9.6rem;
 }
 
 .meal {
   background-color: var(--color-white);
-  border-radius:9px;
+  border-radius: 9px;
   overflow: hidden;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   transition: all 0.4s;
@@ -81,18 +83,17 @@
 }
 
 .meal-img {
-  width:100%;
+  width: 100%;
   height: auto;
 }
-
 
 .meal-content {
   padding: 3.2rem 4.8rem 4.8rem 4.8rem;
 }
 
 .tag {
-  color:var(--color-black);
-  padding:0.4rem 0.8rem;
+  color: var(--color-black);
+  padding: 0.4rem 0.8rem;
   border-radius: 5px;
 
   font-size: 1.2rem;
@@ -122,15 +123,14 @@
 }
 
 .meal-title {
-  font-size:2.4rem;
-  color:var(--color-black);
+  font-size: 2.4rem;
+  color: var(--color-black);
   font-weight: bold;
 }
 
 .meal-attribute {
   font-size: 1.8rem;
 }
-
 
 .all-recipe {
   display: inline-block;
@@ -142,7 +142,7 @@
   transition: all 0.3s;
 }
 .all-recipe:hover {
-  color:var(--color-orange--dark);
+  color: var(--color-orange--dark);
   border-bottom: 1px solid transparent;
 }
 
@@ -153,8 +153,8 @@
 }
 
 .input-box {
-  position:relative;
-  margin-bottom:3.2rem;
+  position: relative;
+  margin-bottom: 3.2rem;
 }
 
 .input-box:last-of-type {
@@ -162,12 +162,11 @@
 }
 
 .input-box input {
-  outline:none;
-  border:none;
-  width:80%;
+  outline: none;
+  border: none;
+  width: 80%;
   border-bottom: 2px solid var(--color-black);
   background-color: var(--color-cream);
-  
 }
 
 .input-box span {
@@ -177,19 +176,13 @@
 .placeholder {
   position: absolute;
   left: 0;
-  top:-0.75px;
-
+  top: -0.75px;
 }
 
 .clicked,
-input:valid + span{
-  left:0;
-  top:-12px;
+input:valid + span {
+  left: 0;
+  top: -12px;
   font-size: 1.2rem;
-  opacity:0.8;
+  opacity: 0.8;
 }
-
-
-
-
-
